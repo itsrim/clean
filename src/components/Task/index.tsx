@@ -92,11 +92,11 @@ export const Tasks: FC<Props> = ({ tasks, setTasks }) => {
                 </td>
                 <td>
                 <button
-                    className="delete is-small"
+                    className="button is-outlined is-danger"
                     onClick={() =>
                     setTasks((prev) => prev.filter((_, i) => i !== index))
                     }
-                ></button>
+                >X</button>
                 </td>
             </tr>
             ))}

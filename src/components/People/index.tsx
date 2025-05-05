@@ -90,13 +90,13 @@ export const People: FC<Props> = ({
                 <td>{person.name}</td>
                 <td>
                   <button
-                    className="delete"
+                    className="button is-outlined is-danger is-small"
                     onClick={() =>
                       setPeople((prev) =>
                         prev.filter((p) => p.id !== person.id)
                       )
                     }
-                  ></button>
+                  >X</button>
                 </td>
                 <td>
                   {person.absences.length > 0
@@ -165,7 +165,7 @@ export const People: FC<Props> = ({
                     </p>
                     <p className="control">
                       <button
-                          className="button is-primary is-outlined is-small"
+                          className="button is-primary is-outlined"
                         onClick={() => {
                           const { start, end } =
                             absenceInputs[person.id] || {};
