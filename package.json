@@ -1,5 +1,6 @@
 {
-  "homepage": "https://itsrim.github.io/clean",
+  "homepage": "https://itsrim.github.io/meteo",
+  "name": "clean",
   "private": true,
   "version": "0.0.0",
   "type": "module",
