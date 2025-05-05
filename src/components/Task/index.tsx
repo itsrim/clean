@@ -54,48 +54,54 @@ export const Tasks: FC<Props> = ({ tasks, setTasks }) => {
         </div>
       </div>
 
-      <div className="box">
-        {tasks.map((task, index) => (
-          <div
-            key={index}
-            className="field is-grouped mb-2 is-align-items-center"
-          >
-            <p className="control is-expanded">
-              <input
-                className="input"
-                value={task.name}
-                onChange={(e) => {
-                  const newTasks = [...tasks];
-                  newTasks[index].name = e.target.value;
-                  setTasks(newTasks);
-                }}
-              />
-            </p>
-            <p className="control">
-              <input
-                className="input"
-                type="number"
-                min={1}
-                max={9}
-                value={task.weight}
-                onChange={(e) => {
-                  const newTasks = [...tasks];
-                  newTasks[index].weight = parseInt(e.target.value);
-                  setTasks(newTasks);
-                }}
-              />
-            </p>
-            <p className="control">
-              <button
-                className="delete is-small"
-                onClick={() =>
-                  setTasks((prev) => prev.filter((_, i) => i !== index))
-                }
-              ></button>
-            </p>
-          </div>
-        ))}
-      </div>
+      <table className="table is-fullwidth is-striped is-hoverable">
+        <thead>
+            <tr>
+            <th>Nom</th>
+            <th>Poids</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {tasks.map((task, index) => (
+            <tr key={index}>
+                <td>
+                <input
+                    className="input"
+                    value={task.name}
+                    onChange={(e) => {
+                    const newTasks = [...tasks];
+                    newTasks[index].name = e.target.value;
+                    setTasks(newTasks);
+                    }}
+                />
+                </td>
+                <td style={{ width: "6rem" }}>
+                <input
+                    className="input"
+                    type="number"
+                    min={1}
+                    max={9}
+                    value={task.weight}
+                    onChange={(e) => {
+                    const newTasks = [...tasks];
+                    newTasks[index].weight = parseInt(e.target.value);
+                    setTasks(newTasks);
+                    }}
+                />
+                </td>
+                <td>
+                <button
+                    className="delete is-small"
+                    onClick={() =>
+                    setTasks((prev) => prev.filter((_, i) => i !== index))
+                    }
+                ></button>
+                </td>
+            </tr>
+            ))}
+        </tbody>
+    </table>
     </div>
   );
 };
