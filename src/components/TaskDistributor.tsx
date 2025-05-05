@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isWithinInterval, parseISO } from "date-fns";
+import { fr } from 'date-fns/locale';
 import "bulma/css/bulma.min.css";
 
 interface Person {
@@ -131,11 +132,8 @@ export const TaskDistributor = () => {
           return (
             <div key={dateStr} className="column is-full-mobile is-one-third-tablet is-one-fifth-desktop is-one-seventh-widescreen">
               <div className="box">
-            <div className="is-flex mb-2 has-text-weight-bold">
-              <span className="mr-4">Tâche</span>
-              <span>Poids</span>
-            </div>
-                <strong>{format(day, "dd MMM")}</strong>
+                <strong>{format(day, "EE dd MMM", { locale: fr })}
+                </strong>
                 <div className="mt-2">
                   {absentPeople.map((person) => (
                     <p key={person.id} className="is-size-7 has-text-grey">
@@ -145,7 +143,7 @@ export const TaskDistributor = () => {
                   {tasksForDay.map((entry, idx) => {
                     const person = people.find((p) => p.id === entry.personId);
                     return (
-                      <div key={idx} className={`tag is-light ${person?.color}`}>{entry.task} - {person?.name}</div>
+                      <div key={idx} className={`tag is-light ${person?.color} has-text-black`}>{entry.task} - {person?.name} </div>
                     );
                   })}
                 </div>
