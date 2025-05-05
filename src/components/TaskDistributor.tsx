@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { format, startOfMonth, endOfMonth, eachDayOfInterval, isWithinInterval, parseISO } from "date-fns";
 import "bulma/css/bulma.min.css";
 
@@ -48,11 +48,11 @@ export const TaskDistributor = () => {
   const [tab, setTab] = useState<string>("people");
   const [newPersonName, setNewPersonName] = useState<string>("");
 
-  const toggleAbsence = (id: number) => {
-    setPeople((prev) =>
-      prev.map((p) => (p.id === id ? { ...p, isAbsent: !p.isAbsent } : p))
-    );
-  };
+  // const toggleAbsence = (id: number) => {
+  //   setPeople((prev) =>
+  //     prev.map((p) => (p.id === id ? { ...p, isAbsent: !p.isAbsent } : p))
+  //   );
+  // };
 
   const addAbsenceRange = (id: number) => {
     const { start, end } = absenceInputs[id] || {};
