@@ -133,7 +133,7 @@ export const People: FC<Props> = ({
                   <div className="field is-grouped is-flex-wrap-wrap">
                     <p className="control">
                       <input
-                        className="input calendar-white"
+                        className="input calendar-white is-focused"
                         type="date"
                         value={absenceInputs[person.id]?.start || ""}
                         onChange={(e) =>
@@ -149,7 +149,7 @@ export const People: FC<Props> = ({
                     </p>
                     <p className="control">
                       <input
-                        className="input calendar-white"
+                        className="input calendar-white is-focused"
                         type="date"
                         value={absenceInputs[person.id]?.end || ""}
                         onChange={(e) =>
@@ -166,7 +166,7 @@ export const People: FC<Props> = ({
                     <p className="control">
                       <button
                           className="button is-primary is-outlined"
-                        onClick={() => {
+                          onClick={() => {
                           const { start, end } =
                             absenceInputs[person.id] || {};
                           if (
