@@ -1,5 +1,7 @@
 import { FC } from "react";
 import { Person } from "../../types/types";
+import { parseISO, format } from "date-fns";
+import { fr } from "date-fns/locale";
 
 type AbsenceInputs = Record<number, { start: string; end: string }>;
 
@@ -104,7 +106,7 @@ export const People: FC<Props> = ({
                           className="is-flex is-justify-content-space-between mb-1"
                         >
                           <span>
-                            {a.start} → {a.end}
+                            {format(parseISO(a.start), "dd/MM/yy", { locale: fr })} → {format(parseISO(a.end), "dd/MM/yy", { locale: fr })}
                           </span>
                           <button
                             className="delete is-small ml-2"
@@ -131,7 +133,7 @@ export const People: FC<Props> = ({
                   <div className="field is-grouped is-flex-wrap-wrap">
                     <p className="control">
                       <input
-                        className="input"
+                        className="input calendar-white"
                         type="date"
                         value={absenceInputs[person.id]?.start || ""}
                         onChange={(e) =>
@@ -147,7 +149,7 @@ export const People: FC<Props> = ({
                     </p>
                     <p className="control">
                       <input
-                        className="input"
+                        className="input calendar-white"
                         type="date"
                         value={absenceInputs[person.id]?.end || ""}
                         onChange={(e) =>
@@ -163,7 +165,7 @@ export const People: FC<Props> = ({
                     </p>
                     <p className="control">
                       <button
-                        className="button is-small"
+                          className="button is-primary is-outlined is-small"
                         onClick={() => {
                           const { start, end } =
                             absenceInputs[person.id] || {};
