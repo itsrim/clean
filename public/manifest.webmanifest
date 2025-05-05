@@ -1,5 +1,5 @@
 {
-    "name": "Nom de ton app",
+    "name": "tasks",
     "short_name": "App",
     "start_url": "/",
     "display": "standalone",
