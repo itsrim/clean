@@ -1,0 +1,22 @@
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.box,
+.card,
+.input,
+.select select,
+.button,
+.tag {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #333;
+}
+
+.input:focus,
+.select select:focus,
+.button:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 0.125em rgba(74, 144, 226, 0.25);
+}
